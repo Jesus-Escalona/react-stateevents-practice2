@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 
-class BeyCard extends React.Component {
+class BeyCard extends Component {
+
+  handler = () => {
+    if(this.props.func) {
+      this.props.func(this.props.data.id, this.props.data.favorite)
+    }
+  }
+
   render() {
-    console.log(this.props);
+    const {name, img} = this.props.data
     return (
       <div>
-        <h3>{/*Bey name goes here*/}</h3>
-        {/*image tag goes here*/}
+        <h3>{name}</h3>
+        <img onClick={this.handler} alt={name} src={img} />
       </div>
     );
   }
